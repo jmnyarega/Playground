@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/jmnyarega/Playground/issues"
   },
-  "homepage": "https://github.com/jmnyarega/Playground#readme"
+  "homepage": "https://github.com/jmnyarega/Playground#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "socket.io": "^2.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
 }
