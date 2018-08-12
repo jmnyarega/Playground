@@ -1,9 +1,26 @@
-// creating a simple server with node 
+var express = require('express');
+var socket = require('socket.io');
 
-const http = require('http');
+// setup
+var app = express();
 
-http.createServer(function(req, res) {
-    res.writeHeader(200);
-    res.write("Hello world");
-    res.end()
-}).listen(7000);
+var server = app.listen(7777, function() {
+    console.log("listening on port 7777");
+});
+
+app.use(express.static('public'));
+
+// socket setup 
+var io = socket(server);
+
+io.on('connection', function(socket) {
+    console.log('made socket connection', socket.id);
+    socket.on('chat', function(data) {
+        io.sockets.emit('chat', data);
+    });
+
+    socket.on('typing', function(data) {
+        // sends data to every other client expect `this`
+        socket.broadcast.emit('typing', data);
+    });
+});
