@@ -2,6 +2,12 @@
  - It is a creational design pattern that provides an interface for creating objects in a superclass, but allows
    superclass to alter the type of objects that will be created.
    
+## Structure
+
+> The Creator class declares the factory method that returns new product objects.
+> You can declare the factory method as abstract to force all subclasses to implement their own versions of the method. As an alternative, the base factory method can return some default product type.
+> The factory method helps to decouple this logic from the concrete product classes.
+   
 ### Coding problem
 
 - Imagine that you’re creating a logistics management application. The first version of your app can only handle transportation by trucks, so the bulk of your code lives inside the Truck class.
