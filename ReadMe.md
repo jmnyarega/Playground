@@ -10,28 +10,29 @@
   - Inefficient solutions
 
 ### Classification of design patterns:
-    1. Creational patterns - provide object creation mechanisms that increase flexibility and reuse of existing code.
-        1. [Factory Method](./Factory)
-        2. Abstract
-        3. Builder
-        4. Prototype
-    3. Structural patterns - explain how to assemble objects & classes into large structures, while keeping the
-       structures flexible and efficient.
-        1. Adapter
-        2. Bridge
-        3. composite
-        4. Decorator
-        5. Facade
-        6. Flyweight
-        7. Proxy
-    4. Behavioral patterns - concerned with algorithms & the assignment of responsibilities between objects.
-        1. Chain of responsibility.
-        2. command
-        3. iterator
-        4. Mediator
-        5. Memento
-        6. Observer
-        7. State
-        8. Strategy
-        9. Template Method
-        10. Visitor
+
+1. Creational patterns - provide object creation mechanisms that increase flexibility and reuse of existing code.
+    1. [Factory Method](./Factory)
+    2. Abstract
+    3. Builder
+    4. Prototype
+2. Structural patterns - explain how to assemble objects & classes into large structures, while keeping the
+    structures flexible and efficient.
+    1. Adapter
+    2. Bridge
+    3. composite
+    4. Decorator
+    5. Facade
+    6. Flyweight
+    7. Proxy
+3. Behavioral patterns - concerned with algorithms & the assignment of responsibilities between objects.
+    1. Chain of responsibility.
+    2. command
+    3. iterator
+    4. Mediator
+    5. Memento
+    6. Observer
+    7. State
+    8. Strategy
+    9. Template Method
+    10. Visitor

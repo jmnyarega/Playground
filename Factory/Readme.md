@@ -18,7 +18,7 @@ Trucks ( All code lives under this object)
   - ...
   - ships ❌ -> you have to make changes to the entire code.
 
-## Solution 1
+### Solution 1
    - [solution here](./solution.ts)
 
 
@@ -34,6 +34,6 @@ Logistics [ planDelivery(), createTransport() ]
    Each class implements this method differently: trucks deliver cargo by land, ships deliver cargo by sea.
    The factory method in the RoadLogistics class returns truck objects, whereas the factory method in the SeaLogistics class returns ships.
    
-## Solution 2
+### Solution 2
   - [solution here](./composition.ts)
   - Object [Composition](https://en.wikipedia.org/wiki/Object_composition).
