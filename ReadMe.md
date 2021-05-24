@@ -1,8 +1,8 @@
-## What is a Design Pattern?
+### What is a Design Pattern?
   - A typical solution to common problems in software design. Each pattern is like a blueprint that you can customize to
     solve a particular design problem in your code.
     
-## Benefits of patterns
+### Benefits of patterns
   - They are a toolkit of tried and tested solutions to common problems in software design. They define a common language that helps
     teams communicate efficiently.
 
