@@ -2,80 +2,97 @@
  * Logistics management application
  */
 
-class Logistics {
-  plan: object;
-  constructor() {
-    this.plan = {};
-  }
-
-  planDelivery = (date: string, delivery: string) => {
-    this.plan[date] = delivery;
-  };
-
-  createTransport = () => {
-    console.log("Transport created.");
-  };
+interface Logistics {
+  planDelivery: (date: string, delivery: string) => void;
+  createTransport: () => string;
 }
 
-class SeaLogistics extends Logistics {
+class SeaLogistics implements Logistics {
   shipNumber: string;
   mileage: string;
+  plan: Array<object> = [];
 
   constructor(shipNumber: string, mileage: string) {
-    super();
     this.shipNumber = shipNumber;
     this.mileage = mileage;
   }
 
-  createTransport = () => {
-    console.log("Sea Transport");
+  createTransport = () => "Sea Transport";
+
+  planDelivery = (date: string, delivery: string) => {
+    const p = { date, delivery };
+    this.plan.push(p);
   };
 }
 
-class RoadLogistics extends Logistics {
-  RegNumber: string;
+class RoadLogistics implements Logistics {
+  regNumber: string;
   mileage: number;
+  plan: Array<object> = [];
 
-  constructor(RegNumber: string, mileage: number) {
-    super();
-    this.RegNumber = RegNumber;
+  constructor(regNumber: string, mileage: number) {
+    this.regNumber = regNumber;
     this.mileage = mileage;
   }
 
-  createTransport = () => {
-    console.log("Road Transport");
+  createTransport = () => "Road Transport";
+
+  planDelivery = (date: string, delivery: string) => {
+    const p = { date, delivery };
+    this.plan.push(p);
   };
 }
 
-class AirLogistics extends Logistics {
-  RegNumber: string;
+class AirLogistics implements Logistics {
+  airNumber: string;
   mileage: string;
+  plan: Array<object> = [];
 
-  constructor(RegNumber: string, mileage: string) {
-    super();
-    this.RegNumber = RegNumber;
+  constructor(airNumber: string, mileage: string) {
+    this.airNumber = airNumber;
     this.mileage = mileage;
   }
 
-  createTransport = () => {
-    console.log("Air Transport");
+  createTransport = () => "Air Transport";
+
+  planDelivery = (date: string, delivery: string) => {
+    const p = { date, delivery };
+    this.plan.push(p);
   };
 }
 
 // ROAD
 const road = new RoadLogistics("123RN", 1230);
 road.createTransport();
-road.planDelivery("12/09/2021", "Supplies");
-console.log(road);
+road.planDelivery("12/09/2021", "Supplies 1");
+road.planDelivery("12/20/2021", "Supplies 2");
+console.log({
+  type: road.createTransport(),
+  plan: road.plan,
+  mileage: road.mileage,
+  RegNumber: road.regNumber,
+});
 
 // SEA
 const sea = new SeaLogistics("123SN", "123KM");
 sea.createTransport();
-sea.planDelivery("12/10/2021", "Machinery");
-console.log(sea);
+sea.planDelivery("12/10/2021", "Machinery 1");
+sea.planDelivery("12/21/2021", "Machinery 2");
+console.log({
+  type: sea.createTransport(),
+  plan: sea.plan,
+  mileage: sea.mileage,
+  shipNumber: sea.shipNumber,
+});
 
 // Air
 const air = new AirLogistics("123AN", "300000miles");
 air.createTransport();
-air.planDelivery("12/11/2021", "Perishables");
-console.log(air);
+air.planDelivery("12/11/2021", "Perishables 1");
+air.planDelivery("12/22/2021", "Perishables 2");
+console.log({
+  type: air.createTransport(),
+  plan: air.plan,
+  mileage: air.mileage,
+  airNumber: air.airNumber,
+});

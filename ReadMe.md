@@ -13,7 +13,7 @@
 
 1. Creational patterns - provide object creation mechanisms that increase flexibility and reuse of existing code.
     1. [Factory Method](./Factory)
-    2. Abstract
+    2. [Abstract](./Abstract)
     3. Builder
     4. Prototype
 2. Structural patterns - explain how to assemble objects & classes into large structures, while keeping the
