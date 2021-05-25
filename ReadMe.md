@@ -3,7 +3,7 @@
     solve a particular design problem in your code.
     
 ### Benefits of patterns
-  - They are a toolkit of tried and tested solutions to common problems in software design. They define a common language that helps
+  - It is a toolkit of tried and tested solutions to common problems in software design. They define a common language that helps
     teams communicate efficiently.
 
   - Kludges for a weak programming language.

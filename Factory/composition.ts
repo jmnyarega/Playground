@@ -1,7 +1,7 @@
 /*
- * RoadTransport = mileage in Kilometer + RegNumber
- * SeaLogistics = mileage in miles + SeaNumber
- * AirLogistics = mileage in meters + AirNumber
+ * RoadTransport = regNumber + mileage + planDelivery + createTransport
+ * SeaLogistics = seaNumber + mileage + planDelivery + createTransport
+ * AirLogistics = airNumber + mileage + planDelivery + createTransport
  */
 
 const RoadTransport = (mileage: string, regNumber: string, plan: object) => {
