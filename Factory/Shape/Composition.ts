@@ -1,9 +1,3 @@
-/*
- * circle = draw
- * square = draw
- * rectangle = draw
- */
-
 const circle = () => ({
   draw: () => console.log("This is a circle"),
 });
