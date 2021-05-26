@@ -34,7 +34,7 @@ class ShapeFactory {
     } else if (this.shape === "Rectangle") {
       return new Rectangle();
     } else {
-      throw new Error("You must provide a shape");
+      throw new Error(`${this.shape} is not a valid shape`);
     }
   };
 }

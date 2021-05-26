@@ -12,20 +12,32 @@
   - Concrete Factories implement creation methods of the abstract factory. Each concrete factory corresponds to a specific variant of products and creates only those product variants.
   - Although concrete factories instantiate concrete products, signatures of their creation methods must return corresponding abstract products. This way the client code that uses a factory doesn’t get coupled to the specific variant of the product it gets from a factory. The Client can work with any concrete factory/product variant, as long as it communicates with their objects via abstract interfaces.
   
-## Problem
+### code example
+ - [Here](./Shape)
+ 
+### Applicability
+  - Use the Abstract Factory when your code needs to work with various families of related products, but don't want it
+    to depend on the concrete classes of those products - they migth be unknown beforehand or you simply want to allow
+    for the future extensibility.
+      - The Abstract Factory provides you with an interface for creating objects from each class of the product family
+      - As long as your code creates objects via this interface, you don’t have to worry about creating the wrong variant of a product which doesn’t match the products already created by your app.
 
-> Imagine that you're creating a furniture shop simulator. Your code consists of classes that represent.
-  1. A family a related products, say `Chair` + `Sofa` + `CoffeeTable`
-  2. Several variants of this family. For family, products `Chair` + `Sofa` + `CoffeeTable` are available in these
-     variants: `Modern`, `Victorian`, `ArtDeco`.
-> You need a way to create individual furniture objects so that they match other objects of the same family.
-Customers get quite mad when they receive non-matching furniture.
+### How to implement
+  - Map out a matrix of distinct product types versus variants of these products.
+  - Declare abstract product interfaces for all product types. Then make all concrete product classes implement these
+    interfaces.
+  - Declare the abstract factory interface with a set of creation methods for all abstract products.
+  - Create factory initialization code somewhere in the app. It should instantiate one of the concrete factory classes, depending on the application configuration or the current environment. Pass this factory object to all classes that construct products.
 
-## Solution
+  - Scan through the code and find all direct calls to product constructors. Replace them with calls to the appropriate creation method on the factory object.
 
-- [Here](./index.ts)
-- Declare interfaces for each distinct products of the product family(`Sofa`, `Chair`, `CoffeeTable`). Then you make all
-  variants of products family(`Sofa`, `Chair` & `CoffeeTable`). Then you can make variants of products follow those
-  interfaces.
-  Example: All Chair variants can implement the `Chair` interface; all coffee table can implement the `coffeeTable`
-  interface, and so on.
+
+### Pros
+  - You can be sure that the products you're getting from a factory are compatible with each other.
+  - You avoid tight coupling between concrete products & client code.
+  - Single Responsibility principle. You can extract the product code into one place, making the easier to support.
+  - Open/Closed principle. You can introduce new variants of products without breaking existing client code.
+
+### Cons
+  - The code may become more complicated than it should be, since a lot of new interfaces and classes are introduced a
+    long with the pattern.
