@@ -1,6 +1,10 @@
 ## Abstract Factory
 - It is a creational design pattern that lets you produce families of related object without specifying their concrete
   class.
+- Abstract Factory patterns work around a super-factory which creates other factories.
+- This factory is also called as factory of factories.
+- In Abstract Factory pattern an interface is responsible for creating a factory of related objects without explicitly
+  specifying their classes.
   
 ## Structure
   - Abstract Products declare interfaces for a set of distinct but related products which make up a product family.

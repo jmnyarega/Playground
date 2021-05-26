@@ -8,14 +8,7 @@ interface Logistics {
 }
 
 class SeaLogistics implements Logistics {
-  shipNumber: string;
-  mileage: string;
   plan: Array<object> = [];
-
-  constructor(shipNumber: string, mileage: string) {
-    this.shipNumber = shipNumber;
-    this.mileage = mileage;
-  }
 
   createTransport = () => "Sea Transport";
 
@@ -26,14 +19,7 @@ class SeaLogistics implements Logistics {
 }
 
 class RoadLogistics implements Logistics {
-  regNumber: string;
-  mileage: number;
   plan: Array<object> = [];
-
-  constructor(regNumber: string, mileage: number) {
-    this.regNumber = regNumber;
-    this.mileage = mileage;
-  }
 
   createTransport = () => "Road Transport";
 
@@ -44,14 +30,7 @@ class RoadLogistics implements Logistics {
 }
 
 class AirLogistics implements Logistics {
-  airNumber: string;
-  mileage: string;
   plan: Array<object> = [];
-
-  constructor(airNumber: string, mileage: string) {
-    this.airNumber = airNumber;
-    this.mileage = mileage;
-  }
 
   createTransport = () => "Air Transport";
 
@@ -61,38 +40,49 @@ class AirLogistics implements Logistics {
   };
 }
 
+class LogisticsFactory {
+  type: string;
+  constructor(type: string) {
+    this.type = type;
+  }
+
+  getLogistic = () => {
+    if (this.type === "Sea") {
+      return new SeaLogistics();
+    } else if (this.type === "Road") {
+      return new RoadLogistics();
+    } else if (this.type === "Air") {
+      return new AirLogistics();
+    }
+  };
+}
+
 // ROAD
-const road = new RoadLogistics("123RN", 1230);
-road.createTransport();
-road.planDelivery("12/09/2021", "Supplies 1");
-road.planDelivery("12/20/2021", "Supplies 2");
+const r = new LogisticsFactory("Road").getLogistic();
+r.createTransport();
+r.planDelivery("12/09/2021", "Supplies 1");
+r.planDelivery("12/20/2021", "Supplies 2");
 console.log({
-  type: road.createTransport(),
-  plan: road.plan,
-  mileage: road.mileage,
-  RegNumber: road.regNumber,
+  type: r.createTransport(),
+  plan: r.plan,
 });
 
 // SEA
-const sea = new SeaLogistics("123SN", "123KM");
-sea.createTransport();
-sea.planDelivery("12/10/2021", "Machinery 1");
-sea.planDelivery("12/21/2021", "Machinery 2");
+const s = new LogisticsFactory("Sea").getLogistic();
+s.createTransport();
+s.planDelivery("12/10/2021", "Machinery 1");
+s.planDelivery("12/21/2021", "Machinery 2");
 console.log({
-  type: sea.createTransport(),
-  plan: sea.plan,
-  mileage: sea.mileage,
-  shipNumber: sea.shipNumber,
+  type: s.createTransport(),
+  plan: s.plan,
 });
 
 // Air
-const air = new AirLogistics("123AN", "300000miles");
-air.createTransport();
-air.planDelivery("12/11/2021", "Perishables 1");
-air.planDelivery("12/22/2021", "Perishables 2");
+const a = new LogisticsFactory("Air").getLogistic();
+a.createTransport();
+a.planDelivery("12/11/2021", "Perishables 1");
+a.planDelivery("12/22/2021", "Perishables 2");
 console.log({
-  type: air.createTransport(),
-  plan: air.plan,
-  mileage: air.mileage,
-  airNumber: air.airNumber,
+  type: a.createTransport(),
+  plan: a.plan,
 });
