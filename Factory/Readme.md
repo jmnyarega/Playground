@@ -9,6 +9,7 @@
 > You can declare the factory method as abstract to force all subclasses to implement their own versions of the method.
   As an alternative, the base factory method can return some default product type.
 > The factory method helps to decouple this logic from the concrete product classes.
+> Note that the factory method doesn’t have to create new instances all the time. It can also return existing objects from a cache, an object pool, or another source.
    
 ### Code example
 - [Here](./Shape)

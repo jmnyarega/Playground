@@ -2,6 +2,12 @@ interface Ishape {
   draw?: () => void;
 }
 
+/*
+ * Superclass
+ * ==============
+ *
+ */
+
 class Circle implements Ishape {
   draw = () => {
     console.log("This is a Circle");
@@ -20,6 +26,12 @@ class Rectangle implements Ishape {
   };
 }
 
+/*
+ * Subclass
+ * ==============
+ *
+ */
+
 class ShapeFactory {
   shape: string;
   constructor(shape: string) {
@@ -34,12 +46,13 @@ class ShapeFactory {
     } else if (this.shape === "Rectangle") {
       return new Rectangle();
     } else {
-      throw new Error(`${this.shape} is not a valid shape`);
+      throw new Error(
+        `${this.shape} is not a valid shape [ Circle, Square, Rectangle ]`
+      );
     }
   };
 }
 
-// circle
 const c = new ShapeFactory("Circle").getShape();
 c.draw();
 

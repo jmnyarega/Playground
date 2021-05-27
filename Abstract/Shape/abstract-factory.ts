@@ -57,7 +57,9 @@ class ShapeFactory extends AbstractFactory {
     } else if (this.shape === "Square") {
       return new Square();
     } else {
-      throw new Error(`${this.shape} is not a valid shape`);
+      throw new Error(
+        `${this.shape} is not a valid shape[Circle, Rectangle, Square]`
+      );
     }
   };
 }
@@ -77,7 +79,9 @@ class RoundedShapeFactory extends AbstractFactory {
     } else if (this.shape === "Square") {
       return new RoundedSquare();
     } else {
-      throw new Error(`${this.shape} is not a valid shape`);
+      throw new Error(
+        `${this.shape} is not a valid shape[Circle, Rectangle, Square]`
+      );
     }
   };
 }
