@@ -10,14 +10,13 @@ const rectangle = () => ({
   draw: () => console.log("This is a rectangle"),
 });
 
-const Factory = (shape: string) => ({
-  [shape]: shapes[shape],
-});
-
-const shapes = {
-  circle: circle(),
-  rectangle: rectangle(),
-  square: square(),
+const Factory = (shape: string) => {
+  const shapes = {
+    circle: circle(),
+    rectangle: rectangle(),
+    square: square(),
+  };
+  return { [shape]: shapes[shape] };
 };
 
 // circle
