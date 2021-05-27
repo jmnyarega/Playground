@@ -18,4 +18,4 @@ const db1 = Database.getInstance("Foo");
 const db2 = Database.getInstance("Bar");
 
 console.log(db1); // Foo
-console.log(db2); // Bar
+console.log(db2); // Foo
