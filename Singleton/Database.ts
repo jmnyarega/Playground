@@ -17,5 +17,5 @@ class Database {
 const db1 = Database.getInstance("Foo");
 const db2 = Database.getInstance("Bar");
 
-console.log(db1); // Foo
-console.log(db2); // Foo
+console.log(db1.value); // Foo
+console.log(db2.value); // Foo
