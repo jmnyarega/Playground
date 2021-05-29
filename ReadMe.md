@@ -17,7 +17,6 @@
     3. [Singleton](./Singleton)
     4. [Prototype](./Prototype)
     5. Builder
-    6. 
 2. Structural patterns - explain how to assemble objects & classes into large structures, while keeping the
     structures flexible and efficient.
     1. Adapter
